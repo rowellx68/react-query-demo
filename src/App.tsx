@@ -1,12 +1,12 @@
 import { Header, Footer } from 'nhsuk-react-components'
-import { RouterProvider, Link } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 import router from '@/routes'
 
 const App = (): JSX.Element => {
   return <>
     <Header>
       <Header.Container>
-        <Header.Logo as={Link.name} to="/" />
+        <Header.Logo as="Link" to="/" />
       </Header.Container>
     </Header>
 
