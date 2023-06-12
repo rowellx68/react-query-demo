@@ -1,4 +1,3 @@
-import { QueryFunction } from '@tanstack/react-query'
 
 export type AppointmentPreview = {
   id: string
@@ -8,16 +7,13 @@ export type AppointmentPreview = {
   specialty: string
 }
 
-export const getUserAppointmentSummaries: QueryFunction<AppointmentPreview[]> = async ({ queryKey }) => {
-  const [ _key, userId ] = queryKey
-
+export const getUserAppointmentSummaries = async (userId: string) => {
   const response = await fetch(`/users/${userId}/appointment-summaries`)
 
   return response.json()
 }
 
-export const getAppointmentDetails: QueryFunction<AppointmentPreview | undefined> = async ({ queryKey }) => {
-  const [ _key, appointmentId ] = queryKey
+export const getAppointmentDetails = async (appointmentId: string) => {
 
   const response = await fetch(`/appointments/${appointmentId}`)
 

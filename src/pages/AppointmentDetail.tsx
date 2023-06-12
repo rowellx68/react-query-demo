@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, QueryFunctionContext } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { Tag, SummaryList } from 'nhsuk-react-components'
 import { getAppointmentDetails } from '@/api/appointments'
@@ -6,8 +6,11 @@ import { getAppointmentDetails } from '@/api/appointments'
 const AppointmentPage = () => {
   const { appointmentId } = useParams()
   const { isLoading, isSuccess, isStale, data: appointment} = useQuery({
-    queryKey: ['appointmentDetail', appointmentId],
-    queryFn: getAppointmentDetails,
+    queryKey: ['appointmentDetail', appointmentId!],
+    queryFn: ({ queryKey }: QueryFunctionContext<string[]>) => {
+      const [_key, apptId] = queryKey
+      return getAppointmentDetails(apptId)
+    },
     staleTime: 3000
   })
 

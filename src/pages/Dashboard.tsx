@@ -1,7 +1,7 @@
 import { getUserAppointmentSummaries } from '@/api/appointments'
-import { getUserDetails } from '@/api/user-details'
+import { UserDetails, getUserDetails } from '@/api/user-details'
 import AppointmentsTable from '@/components/appointments-table'
-import { useQueries } from '@tanstack/react-query'
+import { QueryFunction, QueryFunctionContext, useQueries } from '@tanstack/react-query'
 
 const DashboardPage = (): JSX.Element => {
   const id = '0e091c01-3889-40e6-b43b-617d7770ffa0'
@@ -13,11 +13,19 @@ const DashboardPage = (): JSX.Element => {
     queries: [
       {
         queryKey: ['userDetail', id],
-        queryFn: getUserDetails,
+        queryFn: ({ queryKey }: QueryFunctionContext<string[]>) => {
+          const [_key, userId] = queryKey
+
+          return getUserDetails(userId)
+        },
       },
       {
         queryKey: ['appointmentSummaries', id],
-        queryFn: getUserAppointmentSummaries,
+        queryFn: ({ queryKey }: QueryFunctionContext<string[]>) => {
+          const [_key, userId] = queryKey
+
+          return getUserAppointmentSummaries(userId)
+        },
       }
     ]
   })
