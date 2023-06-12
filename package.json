@@ -5,27 +5,28 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tanstack/react-query": "^4.28.0",
-    "nhsuk-react-components": "^2.2.1",
+    "@tanstack/react-query": "^4.29.12",
+    "nhsuk-react-components": "^2.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.12.1"
   },
   "devDependencies": {
-    "@tanstack/react-query-devtools": "^4.28.0",
-    "@types/node": "^18.15.11",
-    "@types/react": "^18.0.32",
-    "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^3.1.0",
-    "msw": "^1.2.1",
+    "@tanstack/react-query-devtools": "^4.29.12",
+    "@types/node": "^18.16.17",
+    "@types/react": "^18.2.11",
+    "@types/react-dom": "^18.2.4",
+    "@vitejs/plugin-react": "^4.0.0",
+    "msw": "^1.2.2",
     "nhsuk-frontend": "^7.0.0",
-    "sass": "^1.60.0",
+    "sass": "^1.63.3",
     "typescript": "^4.9.5",
-    "vite": "^4.2.1"
+    "vite": "^4.3.9"
   },
   "msw": {
     "workerDirectory": "public"

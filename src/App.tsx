@@ -1,18 +1,17 @@
 import { Header, Footer } from 'nhsuk-react-components'
-import { RouterProvider } from 'react-router-dom'
-import router from '@/routes'
+import { Link, Outlet } from 'react-router-dom'
 
 const App = (): JSX.Element => {
   return <>
     <Header>
       <Header.Container>
-        <Header.Logo as="Link" to="/" />
+        <Header.Logo asElement={Link} to="/" />
       </Header.Container>
     </Header>
 
     <div className="nhsuk-width-container">
       <main className="nhsuk-main-wrapper">
-        <RouterProvider router={router} />
+        <Outlet />
       </main>
     </div>
 
